@@ -24,68 +24,44 @@ namespace Esdeveniment
     {
         UnityAction enInvocar;
 
-        public UnityAction Registrar { set { enInvocar += value; } }
-        public UnityAction Desregistrar { set { enInvocar -= value; } }
+        public void Registrar(UnityAction value) => enInvocar += value; 
+        public void Desregistrar(UnityAction value) => enInvocar -= value;
         public void Netejar() => enInvocar = null;
 
-        public void Invocar()
-        {
-            if (enInvocar != null)
-            {
-                enInvocar.Invoke();
-            }
-        }
+        public virtual void Invocar() => enInvocar?.Invoke();
     }
 
     public class Canal<T> : Canal
     {
         UnityAction<T> enInvocar;
 
-        public UnityAction<T> Registrar { set { enInvocar += value; } }
-        public UnityAction<T> Desregistrar { set { enInvocar -= value; } }
+        public void Registrar(UnityAction<T> value) => enInvocar += value; 
+        public void Desregistrar(UnityAction<T> value) => enInvocar -= value; 
         public void Netejar() => enInvocar = null;
 
-        public void Invocar(T arg)
-        {
-            if(enInvocar != null)
-            {
-                enInvocar.Invoke(arg);
-            }
-        }
-        
+        public virtual void Invocar(T arg) => enInvocar?.Invoke(arg);
+
     }
     public class Canal<T1, T2> : Canal
     {
         UnityAction<T1, T2> enInvocar;
 
-        public UnityAction<T1, T2> Registrar { set { enInvocar += value; } }
-        public UnityAction<T1, T2> Desregistrar { set { enInvocar -= value; } }
+        public void Registrar(UnityAction<T1, T2> value) => enInvocar += value;
+        public void Desregistrar(UnityAction<T1, T2> value) => enInvocar -= value; 
         public void Netejar() => enInvocar = null;
 
-        public void Invocar(T1 arg1, T2 arg2)
-        {
-            if (enInvocar != null)
-            {
-                enInvocar.Invoke(arg1, arg2);
-            }
-        }
+        public virtual void Invocar(T1 arg1, T2 arg2) => enInvocar?.Invoke(arg1, arg2);
 
     }
     public class Canal<T1, T2, T3> : Canal
     {
         UnityAction<T1, T2, T3> enInvocar;
 
-        public UnityAction<T1, T2, T3> Registrar { set { enInvocar += value; } }
-        public UnityAction<T1, T2, T3> Desregistrar { set { enInvocar -= value; } }
+        public void Registrar(UnityAction<T1, T2, T3> value) => enInvocar += value; 
+        public void Desregistrar(UnityAction<T1, T2, T3> value) => enInvocar -= value; 
         public void Netejar() => enInvocar = null;
 
-        public void Invocar(T1 arg1, T2 arg2, T3 arg3)
-        {
-            if (enInvocar != null)
-            {
-                enInvocar.Invoke(arg1, arg2, arg3);
-            }
-        }
+        public virtual void Invocar(T1 arg1, T2 arg2, T3 arg3) => enInvocar?.Invoke(arg1, arg2, arg3);
 
     }
 
@@ -94,11 +70,11 @@ namespace Esdeveniment
         public delegate R EnInvocar(T arg);
         EnInvocar enInvocar;
 
-        public EnInvocar Registrar { set { enInvocar += value; } }
-        public EnInvocar Desregistrar { set { enInvocar -= value; } }
+        public void Registrar(EnInvocar value) => enInvocar += value; 
+        public void Desregistrar(EnInvocar value) => enInvocar -= value; 
         public void Netejar() => enInvocar = null;
 
-        public R Invocar(T arg)
+        public virtual R Invocar(T arg)
         {
             if (enInvocar != null)
                 return Success(arg);
@@ -118,11 +94,11 @@ namespace Esdeveniment
         public delegate R EnInvocar(T1 arg1, T2 arg2);
         EnInvocar enInvocar;
 
-        public EnInvocar Registrar { set { enInvocar += value; } }
-        public EnInvocar Desregistrar { set { enInvocar -= value; } }
+        public void Registrar(EnInvocar value) => enInvocar += value; 
+        public void Desregistrar(EnInvocar value) => enInvocar -= value; 
         public void Netejar() => enInvocar = null;
 
-        public R Invocar(T1 arg1, T2 arg2)
+        public virtual R Invocar(T1 arg1, T2 arg2)
         {
             if (enInvocar != null)
                 return Success(arg1, arg2);

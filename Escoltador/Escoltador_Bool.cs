@@ -10,13 +10,13 @@ public class Escoltador_Bool : MonoBehaviour
 
     private void OnEnable() 
     {
-        if (enTrue != null || enFalse != null) canal.Registrar = escoltadorTrueFalse;
-        canal.Registrar = escoltador.Invoke;
+        if (enTrue != null || enFalse != null) canal.Registrar(escoltadorTrueFalse);
+        canal.Registrar(escoltador.Invoke);
     }
     private void OnDisable() 
     {
-        if(enTrue != null || enFalse != null) canal.Desregistrar = escoltadorTrueFalse;
-        canal.Desregistrar = escoltador.Invoke;
+        if(enTrue != null || enFalse != null) canal.Desregistrar(escoltadorTrueFalse);
+        canal.Desregistrar(escoltador.Invoke);
     }
 
     void escoltadorTrueFalse(bool resultat)
