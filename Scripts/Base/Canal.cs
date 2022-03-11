@@ -9,16 +9,12 @@ using UnityEditor;
 
 namespace Esdeveniment
 {
-    public class Canal : ScriptableObject
-    {
-        [SerializeField] [Informacio] string escoltadors = "Registraren la funcio que tenen tant aviat com poden i esperen. No saben els valors.";
-        [SerializeField] [Informacio] string emisors = "Criden les funcions registrades quan volen, aportant els valors.";
-        [SerializeField] [Informacio] string funcions = "";
-        [SerializeField] [Informacio] string registrar = "Afageix les funcions amb els (VALORS) que es vulguin cridar mes endevant.";
-        [SerializeField] [Informacio] string invocar = "Crida les funcions registrades amb els (VALORS) que es passin";
-        [SerializeField] [Informacio] string aquest = "";
-
-    }
+    /// <summary>
+    /// Es com l'accio de cridar una funció, pero sense sapiguer qui es ni l'emisor ni el receptor.
+    /// Perimer, els escoltadores Registren la funcio a activar quan el canal s'invoci.
+    /// Segon, els emosors Invoquen la funcio passant els parametres que cal.
+    /// </summary>
+    public class Canal : ScriptableObject { }
 
     public class CanalVoid : Canal
     {
