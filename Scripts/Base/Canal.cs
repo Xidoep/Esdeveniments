@@ -18,10 +18,10 @@ namespace Esdeveniment
 
     public class CanalVoid : Canal
     {
-        UnityAction enInvocar;
+        System.Action enInvocar;
 
-        public void Registrar(UnityAction value) => enInvocar += value; 
-        public void Desregistrar(UnityAction value) => enInvocar -= value;
+        public void Registrar(System.Action value) => enInvocar += value; 
+        public void Desregistrar(System.Action value) => enInvocar -= value;
         public void Netejar() => enInvocar = null;
 
         public virtual void Invocar() => enInvocar?.Invoke();
